@@ -6,7 +6,8 @@ A template repository for creating an extension package for BioFSharp.
 
 - `src/BioFSharp.XYZ`: The main project folder. Contains a library with BioFSharp core dependency.
 - `tests/BioFSharp.XYZ.Tests`: The test project folder. Contains a XUnit test project
-- 
+- `build/build.fsproj`: A FAKE build project that handles building, testing, packaging, publishing, etc.
+- `docs`: the docs folder contains an example index.fsx file with simple documentation boilerplate.
 
 ## Setup
 
