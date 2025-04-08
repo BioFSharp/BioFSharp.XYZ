@@ -20,6 +20,8 @@ jobs:
           dotnet-version: 8.x.x
       - name: make script executable
         run: chmod u+x build.sh
+      - name: restore tools
+        run: dotnet tool restore
       - name: Build Docs
         working-directory: ./
         run: ./build.sh builddocs
