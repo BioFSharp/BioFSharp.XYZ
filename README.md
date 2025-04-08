@@ -29,7 +29,7 @@ Here is a list of things you should/might want to do after setting up a repo wit
   - in `build/ProjectInfo.fs`:
     - Set project name: 
       ```fsharp
-      let project = "BioFSharp.XYZ"` // replace with the name of your project
+      let project = "BioFSharp.XYZ" // replace with the name of your project
       ```
     - Set git owner:
       ```fsharp
@@ -42,7 +42,7 @@ Here is a list of things you should/might want to do after setting up a repo wit
           "tests/BioFSharp.XYZ.Tests/BioFSharp.XYZ.Tests.fsproj" // replace with the name of your test project
       ]
       ```
-- If needed, change the target framework of the project. it currently targets `.net8.0`, might want to target a newer version if you need a specific API, or `netstandard2.0` for increased backwards compatibility.
+- If needed, change the target framework of the project. it currently targets `.netstandard2.0` for maximum backwards compatibility, might want to target a newer `.net` version if you need a specific API.
 
 ## Build
 
