@@ -42,6 +42,7 @@ Here is a list of things you should/might want to do after setting up a repo wit
           "tests/BioFSharp.XYZ.Tests/BioFSharp.XYZ.Tests.fsproj" // replace with the name of your test project
       ]
       ```
+  - in `.github/workflows/build-and-test.yml`: change codecov slug
 - If needed, change the target framework of the project. it currently targets `.netstandard2.0` for maximum backwards compatibility, might want to target a newer `.net` version if you need a specific API.
 
 ## Build
