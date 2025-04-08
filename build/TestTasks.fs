@@ -13,6 +13,7 @@ let runTests = BuildTask.create "RunTests" [clean; buildSolution] {
         testProject
         |> Fake.DotNet.DotNet.test (fun testParams ->
             { testParams with
+                Collect = Some "XPlat Code Coverage"
                 Logger = Some "console;verbosity=detailed"
                 Configuration = DotNet.BuildConfiguration.fromString configuration
                 NoBuild = true
