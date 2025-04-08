@@ -36,6 +36,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".ci", ".ci", "{812698C9-F1C7-4708-8B28-B22FAAC0ADA4}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\build-and-test.yml = .github\workflows\build-and-test.yml
+		.github\workflows\deploy-docs.yml = .github\workflows\deploy-docs.yml
 	EndProjectSection
 EndProject
 Global
