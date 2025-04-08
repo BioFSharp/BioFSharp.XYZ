@@ -1,4 +1,6 @@
-# PackageTemplate
+# BioFSharp.XYZ
+
+![Logo](docs/img/Logo_large.png)
 
 A template repository for creating an extension package for BioFSharp.
 
