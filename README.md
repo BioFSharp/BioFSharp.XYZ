@@ -20,6 +20,7 @@ Here is a list of things you should/might want to do after setting up a repo wit
   - `PackageTemplate.sln`
   - `src/BioFSharp.XYZ`
   - `src/BioFSharp.XYZ/BioFSharp.XYZ.fsproj`
+    - Rename and add nuget package metadata
   - `tests/BioFSharp.XYZ`
   - `tests/BioFSharp.XYZ.Tests/BioFSharp.XYZ.Tests.fsproj`
     - Also make sure to fix the project reference to BioFSharp.XYZ when renamed
