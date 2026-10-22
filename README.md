@@ -10,15 +10,16 @@ A template repository for creating an extension package for BioFSharp.
 - `tests/BioFSharp.XYZ.Tests`: an xUnit test project targeting .NET 10.
 - `build/build.fsproj`: a FAKE build project targeting .NET 10 that handles building, testing, packaging, and publishing.
 - `docs`: literate F# documentation and images.
+- [AGENTS.md](AGENTS.md): architecture and working conventions for agents contributing to a BioFSharp extension.
 
 ## Setup
 
 1. Install the .NET 10 SDK. `global.json` selects the SDK family and is also used by CI.
-2. Replace `BioFSharp.XYZ` with your package name throughout the tracked file contents. This includes the solution, project references, source and test namespaces, `build/ProjectInfo.fs`, documentation, and package metadata.
+2. Replace `BioFSharp.XYZ` with your package name throughout the tracked file contents. This includes the solution, project references, source and test namespaces, `build/ProjectInfo.fs`, `AGENTS.md`, documentation, and package metadata.
 3. Rename `BioFSharp.XYZ.sln`, `src/BioFSharp.XYZ` and its `.fsproj`, and `tests/BioFSharp.XYZ.Tests` and its `.fsproj`. Check that the solution entries, test project reference, and `testProjects` in `build/ProjectInfo.fs` point to the renamed files.
 4. Fill in the library's NuGet metadata, including authors and description. Update `gitOwner` in `build/ProjectInfo.fs` and all repository, documentation, license, and release-notes URLs if your GitHub owner differs from `BioFSharp`.
 5. Update `docs/index.fsx`: its heading, library DLL name, include directory, and opened namespace must match the renamed project. If you change the library's target framework, update the framework directory in its `#I` directive too. Keep its BioFSharp package reference aligned with the library project.
-6. Replace the sample library, test, documentation, and release notes with your own content. Replace the images in `docs/img` as needed.
+6. Replace the sample library, test, documentation, and release notes with your own content. Update `AGENTS.md` with your package's purpose, capabilities, boundaries, and any additional conventions. Replace the images in `docs/img` as needed.
 7. Run `dotnet tool restore` from the repository root to install the pinned documentation tool. Documentation build/watch targets also restore it automatically.
 8. For coverage uploads, configure the `CODECOV_TOKEN` repository secret. The workflow derives the repository name automatically. For documentation hosting, configure GitHub Pages to deploy from the `gh-pages` branch, root directory; the first successful docs deployment creates that branch.
 
