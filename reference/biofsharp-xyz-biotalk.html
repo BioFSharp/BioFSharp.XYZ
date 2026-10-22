@@ -22,6 +22,7 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link href="https://BioFSharp.github.io/BioFSharp.XYZ/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
     <script type="application/javascript" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-theme-set-dark.js"></script>
+    <script type="application/javascript" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-details-set-expanded.js"></script>
     <link href="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
     <link href="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
     
@@ -36,12 +37,12 @@
             <input type="checkbox" name="mobile-menu" />
             <ul class="menu">
                 <li class="nav-header">Links</li>
-                <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/LICENSE">License</a>
+                <li class="license-menu-item builtin-menu-item nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/LICENSE">License</a>
                 </li>
-                <li class="nav-item"><a class="nav-link"
+                <li class="release-notes-menu-item builtin-menu-item nav-item"><a class="nav-link"
                                         href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/RELEASE_NOTES.md">Release
                     Notes</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/">Source
+                <li class="repository-menu-item builtin-menu-item nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/">Source
                     Repository</a></li>
                 
                 <li class="nav-header">
@@ -55,7 +56,7 @@
             </ul>
         </div>
         <a href="https://BioFSharp.github.io/BioFSharp.XYZ/">
-            <img alt="Header menu logo" src="https://BioFSharp.github.io/BioFSharp.XYZ/img/logo.png">
+            <img alt="Logo" src="https://BioFSharp.github.io/BioFSharp.XYZ/img/logo.png">
             <strong>BioFSharp.XYZ</strong>
         </a>
     </div>
@@ -70,12 +71,12 @@
 <aside id="fsdocs-main-menu">
     <ul class="menu">
         <li class="nav-header">Links</li>
-        <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/LICENSE">License</a>
+        <li class="license-menu-item builtin-menu-item nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/LICENSE">License</a>
         </li>
-        <li class="nav-item"><a class="nav-link"
+        <li class="release-notes-menu-item builtin-menu-item nav-item"><a class="nav-link"
                                 href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/RELEASE_NOTES.md">Release
             Notes</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/">Source
+        <li class="repository-menu-item builtin-menu-item nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/">Source
             Repository</a></li>
         
         <li class="nav-header">
@@ -107,9 +108,11 @@
   </dl>
   <div class="fsdocs-xmldoc">
     <div>
-      <p class="fsdocs-summary">
-        
-      </p>
+      <div class="fsdocs-summary-contents">
+        <p class="fsdocs-summary">
+          
+        </p>
+      </div>
     </div>
   </div>
   <div>
@@ -124,6 +127,7 @@
           </td>
           <td class="fsdocs-member-list-header">
             Description
+            <fsdocs-details-toggle></fsdocs-details-toggle>
           </td>
         </tr>
       </thead>
@@ -131,7 +135,7 @@
         <tr>
           <td class="fsdocs-member-usage">
             <div>
-              <code onmouseout="hideTip(event, '1', 1)" onmouseover="showTip(event, '1', 1)">
+              <code data-fsdocs-tip="1" data-fsdocs-tip-unique="1">
                 <p>
                   <a id="helloBio">
                     <a href="#helloBio">
@@ -140,7 +144,7 @@
                   </a>
                 </p>
               </code>
-              <div class="fsdocs-tip" id="1">
+              <div popover="" class="fsdocs-tip" id="1">
                 <div class="member-tooltip">
                   Full Usage: 
                   <code><span>helloBio&#32;<span>name</span></span></code>
@@ -168,25 +172,32 @@
             </div>
           </td>
           <td class="fsdocs-member-xmldoc">
-            <dl class="fsdocs-params">
-              <dt class="fsdocs-param">
-                <span class="fsdocs-param-name">
-                  name
-                </span>
-                :
-                <code><span>char&#32;seq</span></code>
-              </dt>
-              <dd class="fsdocs-param-docs"></dd>
-            </dl>
-            <dl class="fsdocs-returns">
-              <dt>
-                <span class="fsdocs-return-name">
-                  Returns: 
-                </span>
-                <code>string</code>
-              </dt>
-              <dd class="fsdocs-return-docs"></dd>
-            </dl>
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row">
+                <a href="https://github.com/BioFSharp/BioFSharp.XYZ/tree/master/src/BioFSharp.XYZ/Library.fs#L6-6" class="fsdocs-source-link" title="Source on GitHub">
+                  <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                </a>
+              </div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    name
+                  </span>
+                  :
+                  <code><span>char&#32;seq</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -217,8 +228,10 @@
 </dialog>
 <script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-tips.js"></script>
 <script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-details-toggle.js"></script>
 <script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-theme.js"></script>
 <script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-search.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-copy-button.js"></script>
 
 </body>
 </html>

@@ -25,6 +25,7 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link href="https://BioFSharp.github.io/BioFSharp.XYZ/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
     <script type="application/javascript" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-theme-set-dark.js"></script>
+    <script type="application/javascript" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-details-set-expanded.js"></script>
     <link href="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
     <link href="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
     
@@ -39,12 +40,12 @@
             <input type="checkbox" name="mobile-menu" />
             <ul class="menu">
                 <li class="nav-header">Links</li>
-                <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/LICENSE">License</a>
+                <li class="license-menu-item builtin-menu-item nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/LICENSE">License</a>
                 </li>
-                <li class="nav-item"><a class="nav-link"
+                <li class="release-notes-menu-item builtin-menu-item nav-item"><a class="nav-link"
                                         href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/RELEASE_NOTES.md">Release
                     Notes</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/">Source
+                <li class="repository-menu-item builtin-menu-item nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/">Source
                     Repository</a></li>
                 
                 <li class="nav-header">
@@ -58,7 +59,7 @@
             </ul>
         </div>
         <a href="https://BioFSharp.github.io/BioFSharp.XYZ/">
-            <img alt="Header menu logo" src="https://BioFSharp.github.io/BioFSharp.XYZ/img/logo.png">
+            <img alt="Logo" src="https://BioFSharp.github.io/BioFSharp.XYZ/img/logo.png">
             <strong>BioFSharp.XYZ</strong>
         </a>
     </div>
@@ -73,12 +74,12 @@
 <aside id="fsdocs-main-menu">
     <ul class="menu">
         <li class="nav-header">Links</li>
-        <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/LICENSE">License</a>
+        <li class="license-menu-item builtin-menu-item nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/LICENSE">License</a>
         </li>
-        <li class="nav-item"><a class="nav-link"
+        <li class="release-notes-menu-item builtin-menu-item nav-item"><a class="nav-link"
                                 href="https://github.com/BioFSharp/BioFSharp.XYZ/blob/main/RELEASE_NOTES.md">Release
             Notes</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/">Source
+        <li class="repository-menu-item builtin-menu-item nav-item"><a class="nav-link" href="https://github.com/BioFSharp/BioFSharp.XYZ/">Source
             Repository</a></li>
         
         <li class="nav-header">
@@ -97,26 +98,31 @@
 <p><img src="./img/Logo_large.png" alt="Logo" /></p>
 <p>you can write markdown in these comment brackets <code>(** ... *)</code></p>
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// and actual F# content in a literate script file</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">a</span> <span class="o">=</span> <span class="n">42</span>
+<span class="k">let</span> <span data-fsdocs-tip="fs1" data-fsdocs-tip-unique="1" class="id">a</span> <span class="o">=</span> <span class="n">42</span>
 </code></pre>
 <p>include evaluations like this:</p>
 <table class="pre"><tr><td><pre><code>42</code></pre></td></tr></table>
 <p>Include the compiled binaries of your project to use in the docs like this.
 Make sure to load any external references via nuget.</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp, 2.0.0-preview.3&quot;</span>
-<span class="pp">#I</span> <span class="s">@&quot;..\src\BioFSharp.XYZ\bin\Release\netstandard2.0&quot;</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp, 2.0.0&quot;</span>
+<span class="pp">#I</span> <span class="s">&quot;../src/BioFSharp.XYZ/bin/Release/netstandard2.0&quot;</span>
 <span class="pp">#r</span> <span class="s">&quot;BioFSharp.XYZ.dll&quot;</span>
 
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">BioFSharp</span><span class="pn">.</span><span class="id">XYZ</span>
+<span class="k">open</span> <span data-fsdocs-tip="fs2" data-fsdocs-tip-unique="2" class="id">BioFSharp</span><span class="pn">.</span><span data-fsdocs-tip="fs3" data-fsdocs-tip-unique="3" class="id">XYZ</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="id">o</span> <span class="o">=</span> <span class="id">BioTalk</span><span class="pn">.</span><span class="id">helloBio</span> <span class="s">&quot;Kev&quot;</span>
+<span class="k">let</span> <span data-fsdocs-tip="fs4" data-fsdocs-tip-unique="4" class="id">o</span> <span class="o">=</span> <span data-fsdocs-tip="fs5" data-fsdocs-tip-unique="5" class="m">BioTalk</span><span class="pn">.</span><span data-fsdocs-tip="fs6" data-fsdocs-tip-unique="6" class="id">helloBio</span> <span class="s">&quot;Kev&quot;</span>
 </code></pre>
-<table class="pre"><tr><td><pre><code>No value returned by any evaluator</code></pre></td></tr></table>
+<table class="pre"><tr><td><pre><code>"Hello Kev the average mass of your name as AminoAcid code is 356.42"</code></pre></td></tr></table>
 <p>Read more about documentation with fsdocs here: <a href="https://fsprojects.github.io/FSharp.Formatting/">https://fsprojects.github.io/FSharp.Formatting/</a></p>
 
-        <div class="fsdocs-tip" id="fs1">val a: int</div>
-<div class="fsdocs-tip" id="fs2">namespace BioFSharp</div>
-<div class="fsdocs-tip" id="fs3">val o: obj</div>
+        <div popover class="fsdocs-tip" id="fs1">val a: int</div>
+<div popover class="fsdocs-tip" id="fs2">namespace BioFSharp</div>
+<div popover class="fsdocs-tip" id="fs3">namespace BioFSharp.XYZ</div>
+<div popover class="fsdocs-tip" id="fs4">val o: string</div>
+<div popover class="fsdocs-tip" id="fs5">module BioTalk
+
+from BioFSharp.XYZ</div>
+<div popover class="fsdocs-tip" id="fs6">val helloBio: name: char seq -&gt; string</div>
 
     </div>
 </main>
@@ -139,8 +145,10 @@ Make sure to load any external references via nuget.</p>
 </dialog>
 <script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-tips.js"></script>
 <script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-details-toggle.js"></script>
 <script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-theme.js"></script>
 <script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-search.js"></script>
+<script type="module" src="https://BioFSharp.github.io/BioFSharp.XYZ/content/fsdocs-copy-button.js"></script>
 
 </body>
 </html>
