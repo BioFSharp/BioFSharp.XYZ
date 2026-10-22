@@ -3,28 +3,27 @@ name: Deploy Docs
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'docs/**'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-docs
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - name: make script executable
-        run: chmod u+x build.sh
+        uses: actions/checkout@v7
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: 8.x.x
-      - name: make script executable
-        run: chmod u+x build.sh
-      - name: restore tools
-        run: dotnet tool restore
+          global-json-file: global.json
       - name: Build Docs
         working-directory: ./
-        run: ./build.sh builddocs
+        run: bash ./build.sh BuildDocs
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:

@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
 
 jobs:
   build-and-test-linux:
@@ -13,32 +15,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v6
       with:
-        dotnet-version: 8.x.x
-    - name: make script executable
-      run: chmod u+x build.sh
+        global-json-file: global.json
     - name: Build and test
       working-directory: ./
-      run: ./build.sh runTests
+      run: bash ./build.sh RunTests
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v5
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        slug: BioFSharp/BioFSharp.XYZ
+        slug: ${{ github.repository }}
 
   build-and-test-windows:
     
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v6
       with:
-        dotnet-version: 8.x.x
+        global-json-file: global.json
     - name: Build and test
       working-directory: ./
-      run: ./build.cmd runTests
+      run: ./build.cmd RunTests

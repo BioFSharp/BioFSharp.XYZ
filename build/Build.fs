@@ -21,25 +21,25 @@ open ReleaseTasks
 let _release = 
     BuildTask.createEmpty 
         "Release" 
-        [clean; buildSolution; runTests; pack; buildDocs; createTag; publishNuget; releaseDocs]
+        [validateNugetApiKey; clean; buildSolution; runTests; pack; buildDocs; createTag; publishNuget; releaseDocs]
 
 /// Full release of nuget package, git tag, and documentation for the prerelease version.
 let _preRelease = 
     BuildTask.createEmpty 
         "PreRelease" 
-        [setPrereleaseTag; clean; buildSolution; runTests; packPrerelease; buildDocsPrerelease; createPrereleaseTag; publishNugetPrerelease; prereleaseDocs]
+        [validateNugetApiKey; setPrereleaseTag; clean; buildSolution; runTests; packPrerelease; buildDocsPrerelease; createPrereleaseTag; publishNugetPrerelease; prereleaseDocs]
 
-/// Full release of nuget package for the prerelease version.
+/// Full release of nuget package for the stable version.
 let _releaseNoDocs = 
     BuildTask.createEmpty 
         "ReleaseNoDocs" 
-        [clean; buildSolution; runTests; pack; createTag; publishNuget;]
+        [validateNugetApiKey; clean; buildSolution; runTests; pack; createTag; publishNuget;]
 
 /// Full release of nuget package for the prerelease version.
 let _preReleaseNoDocs = 
     BuildTask.createEmpty 
         "PreReleaseNoDocs" 
-        [setPrereleaseTag; clean; buildSolution; runTests; packPrerelease; createPrereleaseTag; publishNugetPrerelease]
+        [validateNugetApiKey; setPrereleaseTag; clean; buildSolution; runTests; packPrerelease; createPrereleaseTag; publishNugetPrerelease]
 
 [<EntryPoint>]
 let main args = 

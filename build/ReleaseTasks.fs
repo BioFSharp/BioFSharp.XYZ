@@ -15,7 +15,18 @@ open Fake.Tools
 open Fake.IO
 open Fake.IO.Globbing.Operators
 
-let createTag = BuildTask.create "CreateTag" [clean; buildSolution; runTests; pack] {
+let private requireNugetApiKey () =
+    let apiKey = Environment.environVar "NUGET_API_KEY"
+    if System.String.IsNullOrWhiteSpace apiKey then
+        failwith "Set the NUGET_API_KEY environment variable before releasing packages."
+    TraceSecrets.register "<redacted>" apiKey
+    apiKey
+
+let validateNugetApiKey = BuildTask.create "ValidateNugetApiKey" [] {
+    requireNugetApiKey () |> ignore
+}
+
+let createTag = BuildTask.create "CreateTag" [validateNugetApiKey; clean; buildSolution; runTests; pack] {
     if promptYesNo (sprintf "tagging branch with %s OK?" stableVersionTag ) then
         Git.Branches.tag "" stableVersionTag
         Git.Branches.pushTag "" projectRepo stableVersionTag
@@ -23,7 +34,7 @@ let createTag = BuildTask.create "CreateTag" [clean; buildSolution; runTests; pa
         failwith "aborted"
 }
 
-let createPrereleaseTag = BuildTask.create "CreatePrereleaseTag" [setPrereleaseTag; clean; buildSolution; runTests; packPrerelease] {
+let createPrereleaseTag = BuildTask.create "CreatePrereleaseTag" [validateNugetApiKey; setPrereleaseTag; clean; buildSolution; runTests; packPrerelease] {
     if promptYesNo (sprintf "tagging branch with %s OK?" prereleaseTag ) then 
         Git.Branches.tag "" prereleaseTag
         Git.Branches.pushTag "" projectRepo prereleaseTag
@@ -31,26 +42,26 @@ let createPrereleaseTag = BuildTask.create "CreatePrereleaseTag" [setPrereleaseT
         failwith "aborted"
 }
 
-let publishNuget = BuildTask.create "PublishNuget" [clean; buildSolution; runTests; pack] {
+let publishNuget = BuildTask.create "PublishNuget" [validateNugetApiKey; clean; buildSolution; runTests; pack] {
     let targets = (!! (sprintf "%s/*.*pkg" pkgDir ))
     for target in targets do printfn "%A" target
     let msg = sprintf "release package with version %s?" stableVersionTag
     if promptYesNo msg then
         let source = "https://api.nuget.org/v3/index.json"
-        let apikey =  Environment.environVar "YOUR_KEY_HERE"
+        let apikey = requireNugetApiKey ()
         for artifact in targets do
             let result = DotNet.exec id "nuget" (sprintf "push -s %s -k %s %s --skip-duplicate" source apikey artifact)
             if not result.OK then failwith "failed to push packages"
     else failwith "aborted"
 }
 
-let publishNugetPrerelease = BuildTask.create "PublishNugetPrerelease" [clean; buildSolution; runTests; packPrerelease] {
+let publishNugetPrerelease = BuildTask.create "PublishNugetPrerelease" [validateNugetApiKey; clean; buildSolution; runTests; packPrerelease] {
     let targets = (!! (sprintf "%s/*.*pkg" pkgDir ))
     for target in targets do printfn "%A" target
     let msg = sprintf "release package with version %s?" prereleaseTag 
     if promptYesNo msg then
         let source = "https://api.nuget.org/v3/index.json"
-        let apikey =  Environment.environVar "YOUR_KEY_HERE"
+        let apikey = requireNugetApiKey ()
         for artifact in targets do
             let result = DotNet.exec id "nuget" (sprintf "push -s %s -k %s %s --skip-duplicate" source apikey artifact)
             if not result.OK then failwith "failed to push packages"
